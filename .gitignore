@@ -1,0 +1,19 @@
+# .NET
+CrmViajes.Api/bin/
+CrmViajes.Api/obj/
+*.user
+
+# Angular / Node
+crm-viajes-web/node_modules/
+crm-viajes-web/dist/
+crm-viajes-web/.angular/
+
+# Editores / OS
+.vs/
+.vscode/
+*.swp
+.DS_Store
+
+# Secretos (por si alguna vez se filtra algo acá, nunca debería)
+appsettings.Development.json
+appsettings.Production.json

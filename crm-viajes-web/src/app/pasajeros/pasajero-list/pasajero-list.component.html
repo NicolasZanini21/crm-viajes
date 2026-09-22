@@ -1,0 +1,26 @@
+<h2>Pasajeros</h2>
+
+<a routerLink="/pasajeros/nuevo" class="btn btn-primary">Nuevo Pasajero</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nro. Pasajero</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>DNI</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pasajero of pasajeros" (click)="verFicha(pasajero.idPasajero)">
+      <td>{{ pasajero.idPasajero }}</td>
+      <td>{{ pasajero.nombre }}</td>
+      <td>{{ pasajero.apellido }}</td>
+      <td>{{ pasajero.dni }}</td>
+      <td>{{ pasajero.email }}</td>
+      <td>{{ pasajero.telefono }}</td>
+    </tr>
+  </tbody>
+</table>

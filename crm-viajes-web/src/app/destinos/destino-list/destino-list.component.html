@@ -1,0 +1,20 @@
+<h2>Destinos</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>País</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let destino of destinos">
+      <td>{{ destino.idDestino }}</td>
+      <td>{{ destino.nombre }}</td>
+      <td>{{ destino.pais }}</td>
+      <td>{{ destino.descripcion }}</td>
+    </tr>
+  </tbody>
+</table>

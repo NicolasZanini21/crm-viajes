@@ -1,0 +1,22 @@
+<h2>Paquetes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Salida</th>
+      <th>Regreso</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let paquete of paquetes">
+      <td>{{ paquete.idPaquete }}</td>
+      <td>{{ paquete.nombre }}</td>
+      <td>{{ paquete.fechaSalida }}</td>
+      <td>{{ paquete.fechaRegreso }}</td>
+      <td>{{ paquete.precioBase | currency:'ARS' }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,21 @@
+<button class="menu-toggle" (click)="toggleSidebar()" aria-label="Abrir menú">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<div class="app-shell">
+  <aside class="sidebar" [class.open]="sidebarOpen">
+    <h1 class="brand">ViajeYa</h1>
+    <nav>
+      <a routerLink="/pasajeros" routerLinkActive="active" (click)="sidebarOpen = false">Pasajeros</a>
+      <a routerLink="/destinos" routerLinkActive="active" (click)="sidebarOpen = false">Destinos</a>
+      <a routerLink="/paquetes" routerLinkActive="active" (click)="sidebarOpen = false">Paquetes</a>
+      <a routerLink="/reservas" routerLinkActive="active" (click)="sidebarOpen = false">Reservas</a>
+    </nav>
+  </aside>
+
+  <main class="content" [class.shifted]="sidebarOpen">
+  <router-outlet></router-outlet>
+</main>
+</div>

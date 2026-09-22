@@ -1,0 +1,42 @@
+<h2>Nuevo Pasajero</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nombre</label>
+    <input type="text" formControlName="nombre" class="search-input">
+    <span *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+      El nombre es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label>Apellido</label>
+    <input type="text" formControlName="apellido" class="search-input">
+    <span *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched">
+      El apellido es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label>DNI</label>
+    <input type="text" formControlName="dni" class="search-input">
+    <span *ngIf="form.get('dni')?.invalid && form.get('dni')?.touched">
+      El DNI es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" formControlName="email" class="search-input">
+    <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      Ingresá un email válido.
+    </span>
+  </div>
+
+  <div>
+    <label>Teléfono</label>
+    <input type="text" formControlName="telefono" class="search-input">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

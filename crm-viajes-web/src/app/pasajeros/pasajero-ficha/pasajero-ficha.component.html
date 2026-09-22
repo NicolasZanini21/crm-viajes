@@ -1,0 +1,38 @@
+<div *ngIf="pasajero">
+  <a routerLink="/pasajeros" class="btn btn-primary">← Volver</a>
+
+  <h2>{{ pasajero.nombre }} {{ pasajero.apellido }}</h2>
+
+  <p><strong>DNI:</strong> {{ pasajero.dni }}</p>
+  <p><strong>Email:</strong> {{ pasajero.email }}</p>
+  <p><strong>Teléfono:</strong> {{ pasajero.telefono }}</p>
+  <p><strong>Cliente desde:</strong> {{ pasajero.fechaAlta }}</p>
+  <p><strong>Puntos acumulados:</strong> Próximamente</p>
+
+  <h3>Historial de reservas</h3>
+
+  <table *ngIf="reservas.length > 0">
+    <thead>
+      <tr>
+        <th>ID Reserva</th>
+        <th>Paquete</th>
+        <th>Estado</th>
+        <th>Personas</th>
+        <th>Monto</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reserva of reservas">
+        <td>{{ reserva.idReserva }}</td>
+        <td>{{ reserva.idPaquete }}</td>
+        <td>{{ reserva.idEstadoReserva }}</td>
+        <td>{{ reserva.cantidadPersonas }}</td>
+        <td>{{ reserva.montoAcordado | currency:'ARS' }}</td>
+        <td>{{ reserva.fechaReserva }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="reservas.length === 0">Este pasajero todavía no tiene reservas.</p>
+</div>

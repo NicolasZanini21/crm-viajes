@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+span {
+  display: block;
+  color: var(--color-danger);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.btn {
+  align-self: flex-start;
+}

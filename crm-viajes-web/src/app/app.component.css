@@ -1,0 +1,129 @@
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: var(--color-text);
+  color: var(--color-white);
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.brand {
+  color: var(--color-white);
+  font-size: 20px;
+  margin: 0 0 24px 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+  background-color: var(--color-primary);
+  font-weight: 600;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+
+}
+.menu-toggle {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1100;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-white);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: var(--color-sidebar-bg);
+  color: var(--color-white);
+  padding: 70px 20px 20px 20px;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  z-index: 1000;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.brand {
+  color: var(--color-white);
+  font-size: 20px;
+  margin: 0 0 24px 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+  background-color: var(--color-primary);
+  font-weight: 600;
+}
+
+.content {
+  padding: 24px 24px 24px 80px;
+  transition: margin-left 0.25s ease;
+}
+
+.content.shifted {
+  margin-left: 220px;
+}
+

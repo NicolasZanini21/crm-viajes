@@ -1,0 +1,24 @@
+<h2>Reservas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Pasajero</th>
+      <th>Paquete</th>
+      <th>Estado</th>
+      <th>Personas</th>
+      <th>Monto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserva of reservas">
+      <td>{{ reserva.idReserva }}</td>
+      <td>{{ reserva.idPasajero }}</td>
+      <td>{{ reserva.idPaquete }}</td>
+      <td>{{ reserva.idEstadoReserva }}</td>
+      <td>{{ reserva.cantidadPersonas }}</td>
+      <td>{{ reserva.montoAcordado | currency:'ARS' }}</td>
+    </tr>
+  </tbody>
+</table>
