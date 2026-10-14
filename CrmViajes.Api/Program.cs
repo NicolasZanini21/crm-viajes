@@ -17,8 +17,7 @@ builder.Services.AddCors(options =>
 
     options.AddPolicy("AngularDemo", policy =>
     {
-        // Reemplazar por la URL real del frontend una vez desplegado (Netlify/Vercel)
-        policy.WithOrigins("https://TU-FRONTEND-DEMO.netlify.app")
+        policy.WithOrigins("https://enchanting-frangipane-8ba55a.netlify.app")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
