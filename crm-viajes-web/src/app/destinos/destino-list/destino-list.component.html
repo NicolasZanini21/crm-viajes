@@ -1,20 +1,22 @@
 <h2>Destinos</h2>
 
+<a routerLink="/destinos/nuevo" class="btn btn-primary">Nuevo Destino</a>
+
 <table>
   <thead>
     <tr>
       <th>ID</th>
-      <th>Nombre</th>
+      <th>Destino</th>
       <th>País</th>
-      <th>Descripción</th>
+      <th>Continente</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let destino of destinos">
       <td>{{ destino.idDestino }}</td>
-      <td>{{ destino.nombre }}</td>
+      <td>{{ destino.destino }}</td>
       <td>{{ destino.pais }}</td>
-      <td>{{ destino.descripcion }}</td>
+      <td>{{ nombreContinente(destino.idContinente) }}</td>
     </tr>
   </tbody>
 </table>

@@ -1,12 +1,12 @@
 export interface Destino {
   idDestino: number;
-  nombre: string;
+  destino: string;
   pais: string;
-  descripcion?: string;
+  idContinente: number;
 }
 
 export interface DestinoDto {
-  nombre: string;
+  destino: string;
   pais: string;
-  descripcion?: string;
+  idContinente: number;
 }

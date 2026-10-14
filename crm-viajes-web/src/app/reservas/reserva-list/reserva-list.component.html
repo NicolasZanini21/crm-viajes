@@ -1,5 +1,7 @@
 <h2>Reservas</h2>
 
+<a routerLink="/reservas/nuevo" class="btn btn-primary">Nueva Reserva</a>
+
 <table>
   <thead>
     <tr>
@@ -14,9 +16,9 @@
   <tbody>
     <tr *ngFor="let reserva of reservas">
       <td>{{ reserva.idReserva }}</td>
-      <td>{{ reserva.idPasajero }}</td>
-      <td>{{ reserva.idPaquete }}</td>
-      <td>{{ reserva.idEstadoReserva }}</td>
+      <td>{{ nombrePasajero(reserva.idPasajero) }}</td>
+      <td>{{ nombrePaquete(reserva.idPaquete) }}</td>
+      <td>{{ nombreEstado(reserva.idEstadoReserva) }}</td>
       <td>{{ reserva.cantidadPersonas }}</td>
       <td>{{ reserva.montoAcordado | currency:'ARS' }}</td>
     </tr>

@@ -2,7 +2,7 @@ namespace CrmViajes.Api.Dto;
 
 public class DestinoDto
 {
-    public string Nombre { get; set; } = string.Empty;
+    public string Destino { get; set; } = string.Empty;
     public string Pais { get; set; } = string.Empty;
-    public string? Descripcion { get; set; }
+    public int IdContinente { get; set; }
 }

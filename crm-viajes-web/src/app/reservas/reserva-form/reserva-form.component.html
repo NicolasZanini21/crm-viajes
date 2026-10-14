@@ -1,0 +1,53 @@
+<h2>Nueva Reserva</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardar()">
+  <div>
+    <label for="idPasajero">Pasajero</label>
+    <select id="idPasajero" formControlName="idPasajero" class="search-input">
+      <option [ngValue]="null" disabled>Seleccioná un pasajero</option>
+      <option *ngFor="let pasajero of pasajeros" [ngValue]="pasajero.idPasajero">
+        {{ pasajero.nombre }} {{ pasajero.apellido }}
+      </option>
+    </select>
+    <span *ngIf="form.get('idPasajero')?.invalid && form.get('idPasajero')?.touched">
+      El pasajero es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label for="idPaquete">Paquete</label>
+    <select id="idPaquete" formControlName="idPaquete" class="search-input">
+      <option [ngValue]="null" disabled>Seleccioná un paquete</option>
+      <option *ngFor="let paquete of paquetes" [ngValue]="paquete.idPaquete">
+        {{ paquete.nombre }}
+      </option>
+    </select>
+    <span *ngIf="form.get('idPaquete')?.invalid && form.get('idPaquete')?.touched">
+      El paquete es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label for="idEstadoReserva">Estado</label>
+    <select id="idEstadoReserva" formControlName="idEstadoReserva" class="search-input">
+      <option *ngFor="let estado of estadosReserva" [ngValue]="estado.idEstadoReserva">
+        {{ estado.nombreEstado }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="cantidadPersonas">Cantidad de personas</label>
+    <input id="cantidadPersonas" type="number" formControlName="cantidadPersonas" class="search-input" min="0" />
+    <span *ngIf="form.get('cantidadPersonas')?.invalid && form.get('cantidadPersonas')?.touched">
+      Tiene que ser 0 o más.
+    </span>
+  </div>
+
+  <div>
+    <label for="montoAcordado">Monto acordado (opcional)</label>
+    <input id="montoAcordado" type="number" formControlName="montoAcordado" class="search-input" min="0" step="0.01" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

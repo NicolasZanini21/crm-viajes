@@ -29,6 +29,8 @@ public partial class CrmViajesDbContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
+    public virtual DbSet<Continente> Continentes { get; set; }
+
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
     if (!optionsBuilder.IsConfigured)
@@ -44,20 +46,39 @@ public partial class CrmViajesDbContext : DbContext
 }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Destino>(entity =>
+               modelBuilder.Entity<Destino>(entity =>
         {
             entity.HasKey(e => e.IdDestino).HasName("destino_pkey");
 
             entity.ToTable("destino");
 
             entity.Property(e => e.IdDestino).HasColumnName("id_destino");
-            entity.Property(e => e.Descripcion).HasColumnName("descripcion");
-            entity.Property(e => e.Nombre)
+            entity.Property(e => e.Destino1)
                 .HasMaxLength(50)
-                .HasColumnName("nombre");
+                .HasColumnName("destino");
             entity.Property(e => e.Pais)
                 .HasMaxLength(50)
                 .HasColumnName("pais");
+            entity.Property(e => e.IdContinente).HasColumnName("id_continente");
+
+            entity.HasOne(d => d.IdContinenteNavigation).WithMany(p => p.Destinos)
+                .HasForeignKey(d => d.IdContinente)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_destino_continente");
+        });
+
+        modelBuilder.Entity<Continente>(entity =>
+        {
+            entity.HasKey(e => e.IdContinente).HasName("continente_pkey");
+
+            entity.ToTable("continente");
+
+            entity.HasIndex(e => e.NombreContinente, "continente_nombre_continente_key").IsUnique();
+
+            entity.Property(e => e.IdContinente).HasColumnName("id_continente");
+            entity.Property(e => e.NombreContinente)
+                .HasMaxLength(50)
+                .HasColumnName("nombre_continente");
         });
 
         modelBuilder.Entity<EstadoReserva>(entity =>

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Paquete } from '../../models/paquete.model';
 import { PaqueteService } from '../../services/paquete.service';
 
 @Component({
   selector: 'app-paquete-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './paquete-list.component.html',
   styleUrl: './paquete-list.component.css'
 })

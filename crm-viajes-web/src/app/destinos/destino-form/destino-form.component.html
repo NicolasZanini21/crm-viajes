@@ -1,0 +1,34 @@
+<h2>Nuevo Destino</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardar()">
+  <div>
+    <label for="destino">Destino</label>
+    <input id="destino" type="text" formControlName="destino" class="search-input" />
+    <span *ngIf="form.get('destino')?.invalid && form.get('destino')?.touched">
+      El destino es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label for="pais">País</label>
+    <input id="pais" type="text" formControlName="pais" class="search-input" />
+    <span *ngIf="form.get('pais')?.invalid && form.get('pais')?.touched">
+      El país es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label for="idContinente">Continente</label>
+    <select id="idContinente" formControlName="idContinente" class="search-input">
+      <option [ngValue]="null" disabled>Seleccioná un continente</option>
+      <option *ngFor="let continente of continentes" [ngValue]="continente.idContinente">
+        {{ continente.nombreContinente }}
+      </option>
+    </select>
+    <span *ngIf="form.get('idContinente')?.invalid && form.get('idContinente')?.touched">
+      El continente es obligatorio.
+    </span>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

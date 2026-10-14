@@ -36,39 +36,39 @@ public class DestinoController : ControllerBase
         return destino;
     }
 
-   [HttpPost]
-public async Task<ActionResult<Destino>> PostDestino(DestinoDto dto)
-{
-    var destino = new Destino
+    [HttpPost]
+    public async Task<ActionResult<Destino>> PostDestino(DestinoDto dto)
     {
-        Nombre = dto.Nombre,
-        Pais = dto.Pais,
-        Descripcion = dto.Descripcion
-    };
+        var destino = new Destino
+        {
+            Destino1 = dto.Destino,
+            Pais = dto.Pais,
+            IdContinente = dto.IdContinente
+        };
 
-    _context.Destinos.Add(destino);
-    await _context.SaveChangesAsync();
+        _context.Destinos.Add(destino);
+        await _context.SaveChangesAsync();
 
-    return CreatedAtAction(nameof(GetDestino), new { id = destino.IdDestino }, destino);
-}
-
-[HttpPut("{id}")]
-public async Task<IActionResult> PutDestino(int id, DestinoDto dto)
-{
-    var destino = await _context.Destinos.FindAsync(id);
-    if (destino == null)
-    {
-        return NotFound();
+        return CreatedAtAction(nameof(GetDestino), new { id = destino.IdDestino }, destino);
     }
 
-    destino.Nombre = dto.Nombre;
-    destino.Pais = dto.Pais;
-    destino.Descripcion = dto.Descripcion;
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutDestino(int id, DestinoDto dto)
+    {
+        var destino = await _context.Destinos.FindAsync(id);
+        if (destino == null)
+        {
+            return NotFound();
+        }
 
-    await _context.SaveChangesAsync();
+        destino.Destino1 = dto.Destino;
+        destino.Pais = dto.Pais;
+        destino.IdContinente = dto.IdContinente;
 
-    return NoContent();
-}
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteDestino(int id)
