@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Paquete, PaqueteDto } from '../models/paquete.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaqueteService {
-  private readonly apiUrl = 'http://localhost:5149/api/paquetes';
+  private readonly apiUrl = `${environment.apiUrl}/paquetes`;
 
   constructor(private http: HttpClient) { }
 

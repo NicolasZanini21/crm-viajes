@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Destino, DestinoDto } from '../models/destino.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DestinoService {
-  private readonly apiUrl = 'http://localhost:5149/api/destinos';
+  private readonly apiUrl = `${environment.apiUrl}/destinos`;
 
   constructor(private http: HttpClient) { }
 
