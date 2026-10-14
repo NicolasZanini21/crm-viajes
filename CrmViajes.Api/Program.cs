@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 
     options.AddPolicy("AngularDemo", policy =>
     {
-        policy.WithOrigins("https://enchanting-frangipane-8ba55a.netlify.app")
+        policy.WithOrigins("https://crm-viajes-demo.netlify.app")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
